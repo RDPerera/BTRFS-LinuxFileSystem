@@ -43,7 +43,7 @@ void Insert(int key) {
         struct node *newnode;
         int upKey;
         int state;
-        state = ins(root, key, &upKey, &newnode);//
+        state = ins(root, key, &upKey, &newnode);//checking all cases to insert a new key
         if (state == VAP)
                 printf("Key Already Present In B-Tree\n");
         if (state == Available) {
@@ -61,7 +61,7 @@ int ins(struct node *link, int key, int *upKey, struct node **newnode) {
         int position, i, n, splitPosition;
         int newKey, lastKey;
         int state;
-        if (link == NULL) {
+        if (link == NULL) {//if root is null
                 *newnode = NULL;
                 *upKey = key;
                 return Available ;
@@ -73,7 +73,7 @@ int ins(struct node *link, int key, int *upKey, struct node **newnode) {
         state = ins(link->links[position], key, &newKey, &newlink);
         if (state != Available )
                 return state;
-        /*If keys in struct node is less than M-1 where M is order of B tree*/
+        //
         if (n < M - 1) {
                 position = searchPosition(newKey, link->keys, n);
                 /*Shifting the key and pointer right for Inserting the new key*/

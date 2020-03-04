@@ -28,21 +28,21 @@ node * root = NULL;
 class btree{
 	public:
 		void Insert(int key) {
-        struct node *newnode;
-        int upKey;
-        int state;
-        state = ins(root, key, &upKey, &newnode);//checking all cases to insert a new key
-        if (state == VAP)
-                printf("Key Already Present In B-Tree\n");
-        if (state == Available) {
-                node *uproot = root;
-                root = new struct node;
-                root->links[1] = newnode;
-                root->keys[0] = upKey;
-                root->links[0] = uproot;
-                root->n = 1;
-                
-        	}
+	        struct node *newnode;
+	        int upKey;
+	        int state;
+	        state = ins(root, key, &upKey, &newnode);//checking all cases to insert a new key
+	        if (state == VAP)
+	                printf("Key Already Present In B-Tree\n");
+	        if (state == Available) {
+	                node *uproot = root;
+	                root = new struct node;
+	                root->links[1] = newnode;
+	                root->keys[0] = upKey;
+	                root->links[0] = uproot;
+	                root->n = 1;
+	                
+	        	}
 		}
 		void Delete(int key) {
 		        struct node *uproot;
